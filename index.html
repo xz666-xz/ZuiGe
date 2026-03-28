@@ -8,11 +8,10 @@
         /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* 核心设置：背景图完全铺满，去除任何黑色蒙版 */
+        /* 背景图：已替换为 4.png.jpg */
         body { 
-            /* 这里只保留背景图，删掉了黑色蒙版 */
-            background: url('2.png.jpg') no-repeat center center fixed; 
-            background-size: cover; /* 强制覆盖全屏，保持比例 */
+            background: url('4.png.jpg') no-repeat center center fixed; 
+            background-size: cover; 
             color: #ff4444; 
             font-family: "微软雅黑", sans-serif; 
             text-align: center;
@@ -21,7 +20,7 @@
             overflow: hidden;
         }
         
-        /* 科技感网格背景（保留一点点线条感，但去掉蒙版） */
+        /* 科技感网格背景 */
         body::after {
             content: "";
             position: fixed;
@@ -31,8 +30,8 @@
                 linear-gradient(to right, rgba(255,68,68,0.15) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255,68,68,0.15) 1px, transparent 1px);
             background-size: 40px 40px;
-            z-index: 0; /* 放在背景图和内容中间 */
-            pointer-events: none; /* 不遮挡点击 */
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* 粒子画布 */
@@ -40,21 +39,21 @@
             position: fixed;
             width: 100%; height: 100%;
             top: 0; left: 0;
-            z-index: 1; /* 放在网格线下面 */
+            z-index: 1;
             pointer-events: none;
         }
 
         /* 内容容器 */
         .content {
             position: relative;
-            z-index: 2; /* 最高层级，保证文字在最上面 */
+            z-index: 2;
         }
 
-        /* 标题：去掉科技感发光动画，变回纯净红色 */
+        /* 标题：纯净红色 */
         h1 {
             font-size: clamp(40px, 10vw, 80px);
             margin-bottom: 15px;
-            color: #ff4444; /* 直接用纯色，无阴影动画 */
+            color: #ff4444;
             letter-spacing: 2px;
         }
 
