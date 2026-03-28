@@ -1,80 +1,75 @@
-一<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>罪歌 </title>
+    <title>罪歌</title>
     <style>
+        /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: url('2.png.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #ff4444;
-            font-family: "微软雅黑", sans-serif;
+        
+        /* 核心设置：背景图完全铺满，去除任何黑色蒙版 */
+        body { 
+            /* 这里只保留背景图，删掉了黑色蒙版 */
+            background: url('2.png.jpg') no-repeat center center fixed; 
+            background-size: cover; /* 强制覆盖全屏，保持比例 */
+            color: #ff4444; 
+            font-family: "微软雅黑", sans-serif; 
             text-align: center;
-            padding: 60px 20px 100px;
+            padding: 60px 20px 100px; 
             position: relative;
             overflow: hidden;
         }
-
-        /* 底层背景图 + 黑色透明蒙版 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.70);
-            z-index: -2;
-        }
-
-        /* 科技感网格背景 */
+        
+        /* 科技感网格背景（保留一点点线条感，但去掉蒙版） */
         body::after {
             content: "";
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image:
-                linear-gradient(to right, rgba(255,68,68,0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,68,68,0.1) 1px, transparent 1px);
+            background-image: 
+                linear-gradient(to right, rgba(255,68,68,0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,68,68,0.15) 1px, transparent 1px);
             background-size: 40px 40px;
-            z-index: -1;
+            z-index: 0; /* 放在背景图和内容中间 */
+            pointer-events: none; /* 不遮挡点击 */
         }
 
+        /* 粒子画布 */
         #particles-js {
             position: fixed;
             width: 100%; height: 100%;
             top: 0; left: 0;
-            z-index: 0;
+            z-index: 1; /* 放在网格线下面 */
+            pointer-events: none;
         }
 
-        .content { position: relative; z-index: 1; }
+        /* 内容容器 */
+        .content {
+            position: relative;
+            z-index: 2; /* 最高层级，保证文字在最上面 */
+        }
 
+        /* 标题：去掉科技感发光动画，变回纯净红色 */
         h1 {
             font-size: clamp(40px, 10vw, 80px);
             margin-bottom: 15px;
-            text-shadow: 0 0 15px #ff4444;
-            animation: glow 2s ease-in-out infinite alternate;
-            letter-spacing: 3px;
+            color: #ff4444; /* 直接用纯色，无阴影动画 */
+            letter-spacing: 2px;
         }
 
-        @keyframes glow {
-            from { opacity: 0.8; }
-            to { opacity: 1; text-shadow: 0 0 20px #ff6666; }
-        }
-
+        /* 副标题 */
         p.sub-title {
             font-size: clamp(16px, 3vw, 22px);
             color: #ccc;
             margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
+        /* 图片容器 */
         .img-container {
             max-width: 80%;
             margin: 0 auto 50px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease-out;
         }
         .img-container:hover {
             transform: scale(1.02) rotate(1deg);
@@ -84,19 +79,18 @@
             height: auto;
             border-radius: 12px;
             box-shadow: 0 0 30px rgba(255, 68, 68, 0.4);
-            border: 1px solid #ff4444;
             display: block;
         }
 
+        /* 底部信息卡片 */
         .info-card {
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(10, 10, 10, 0.85);
             border: 1px solid #ff4444;
             border-radius: 12px;
             padding: 25px;
             max-width: 90%;
             margin: 0 auto;
             backdrop-filter: blur(8px);
-            box-shadow: 0 0 20px rgba(255, 68, 68, 0.25);
         }
 
         .info-card h3 {
@@ -115,13 +109,14 @@
         .highlight {
             color: #ff4444;
             font-weight: bold;
-            text-shadow: 0 0 6px currentColor;
         }
     </style>
 
+    <!-- 粒子库 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
     <div class="content">
@@ -140,12 +135,13 @@
     </div>
 
     <script>
+        // 粒子配置
         particlesJS("particles-js", {
             particles: {
                 number: { value: 60, density: { enable: true, value_area: 800 } },
                 color: { value: "#ff4444" },
                 shape: { type: "circle" },
-                opacity: { value: 0.3, random: true },
+                opacity: { value: 0.4, random: true },
                 size: { value: 2, random: true },
                 line_linked: {
                     enable: true,
