@@ -3,67 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>罪歌 - 科技感</title>
+    <title>罪歌 - 科技背景版</title>
     <style>
-        /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* 画布与背景 */
-        body { 
-            background: #000; 
-            color: #ff4444; 
-            font-family: "微软雅黑", sans-serif; 
+
+        body {
+            background: url('2.png.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ff4444;
+            font-family: "微软雅黑", sans-serif;
             text-align: center;
-            padding: 60px 20px 100px; 
+            padding: 60px 20px 100px;
             position: relative;
             overflow: hidden;
         }
 
-        /* 科技感线条背景 */
+        /* 底层背景图 + 黑色透明蒙版 */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(to right, rgba(255,68,68,0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,68,68,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
+            background: rgba(0, 0, 0, 0.70);
             z-index: -2;
         }
 
-        /* 粒子画布 */
+        /* 科技感网格背景 */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(255,68,68,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,68,68,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
         #particles-js {
             position: fixed;
             width: 100%; height: 100%;
             top: 0; left: 0;
-            z-index: -1;
+            z-index: 0;
         }
 
-        /* 内容容器 */
-        .content {
-            position: relative;
-            z-index: 1;
-        }
+        .content { position: relative; z-index: 1; }
 
-        /* 标题与霓虹光效 */
         h1 {
             font-size: clamp(40px, 10vw, 80px);
             margin-bottom: 15px;
-            text-shadow: 
-                0 0 10px #ff4444,
-                0 0 20px #ff4444,
-                0 0 40px #ff4444;
+            text-shadow: 0 0 15px #ff4444;
             animation: glow 2s ease-in-out infinite alternate;
             letter-spacing: 3px;
         }
 
         @keyframes glow {
             from { opacity: 0.8; }
-            to { opacity: 1; text-shadow: 0 0 20px #ff6666, 0 0 40px #ff2a6d; }
+            to { opacity: 1; text-shadow: 0 0 20px #ff6666; }
         }
 
-        /* 副标题 */
         p.sub-title {
             font-size: clamp(16px, 3vw, 22px);
             color: #ccc;
@@ -72,7 +71,6 @@
             letter-spacing: 2px;
         }
 
-        /* 图片容器 */
         .img-container {
             max-width: 80%;
             margin: 0 auto 50px;
@@ -86,11 +84,10 @@
             height: auto;
             border-radius: 12px;
             box-shadow: 0 0 30px rgba(255, 68, 68, 0.4);
-            display: block;
             border: 1px solid #ff4444;
+            display: block;
         }
 
-        /* 信息卡片 - 科技感边框 */
         .info-card {
             background: rgba(10, 10, 10, 0.9);
             border: 1px solid #ff4444;
@@ -99,16 +96,13 @@
             max-width: 90%;
             margin: 0 auto;
             backdrop-filter: blur(8px);
-            box-shadow: 
-                0 0 15px rgba(255, 68, 68, 0.3),
-                inset 0 0 15px rgba(255, 68, 68, 0.1);
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.25);
         }
 
         .info-card h3 {
             margin-bottom: 20px;
             color: #fff;
             font-size: 20px;
-            letter-spacing: 1px;
         }
 
         .info-card p {
@@ -121,15 +115,13 @@
         .highlight {
             color: #ff4444;
             font-weight: bold;
-            text-shadow: 0 0 5px currentColor;
+            text-shadow: 0 0 6px currentColor;
         }
     </style>
 
-    <!-- 粒子库 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <!-- 粒子背景 -->
     <div id="particles-js"></div>
 
     <div class="content">
@@ -148,13 +140,12 @@
     </div>
 
     <script>
-        // 粒子配置
         particlesJS("particles-js", {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
+                number: { value: 60, density: { enable: true, value_area: 800 } },
                 color: { value: "#ff4444" },
                 shape: { type: "circle" },
-                opacity: { value: 0.4, random: true },
+                opacity: { value: 0.3, random: true },
                 size: { value: 2, random: true },
                 line_linked: {
                     enable: true,
@@ -166,18 +157,11 @@
                 move: {
                     enable: true,
                     speed: 1,
-                    direction: "none",
                     random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
+                    out_mode: "out"
                 }
             },
-            interactivity: {
-                detect_only: "canvas",
-                events: { onhover: false, onclick: false, resize: true }
-            },
-            retina_detect: true
+            interactivity: { events: { resize: true } }
         });
     </script>
 </body>
