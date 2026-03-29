@@ -22,12 +22,12 @@
             background-attachment: fixed;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             padding: 20px;
             border-bottom: 1px solid #444;
         }
@@ -40,15 +40,6 @@
         .subtitle {
             font-size: 18px;
             color: #aaa;
-        }
-        .top-img {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .top-img img {
-            max-width: 90%;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(147, 51, 234, 0.4);
         }
         .card {
             background: rgba(30, 30, 30, 0.7);
@@ -70,25 +61,35 @@
             padding-bottom: 10px;
             border-bottom: 1px dashed #555;
         }
-        .member-list {
+        /* 创始人（竖排） */
+        .founder-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
+        }
+        /* 副掌权（横排） */
+        .vice-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
         }
         .member-item {
             padding: 15px;
             background: rgba(40, 40, 40, 0.6);
             border-radius: 10px;
             border-left: 4px solid #9333ea;
+            min-width: 140px;
+            text-align: center;
         }
         .member-name {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #fff;
             margin-bottom: 5px;
         }
         .member-desc {
-            font-size: 14px;
+            font-size: 12px;
             color: #bbb;
         }
         .bottom-img {
@@ -136,57 +137,60 @@
             <p class="subtitle">ZuiGe · 罪恶之歌喷蛆圣地</p>
         </div>
 
-        <div class="top-img">
-            <img src="1.png.jpg" alt="罪歌封面">
-        </div>
-
-        <!-- 高层人物（已更新全部介绍词） -->
+        <!-- 创始人（单独板块） -->
         <div class="card">
-            <h2 class="card-title">高层人物</h2>
-            <div class="member-list">
+            <h2 class="card-title">创始人</h2>
+            <div class="founder-list">
                 <div class="member-item">
-                    <div class="member-name">创始人 · 皇帝 · 周子扬</div>
+                    <div class="member-name">皇帝 · 周子扬</div>
                     <div class="member-desc">核心掌控者 · 秩序制定者</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- 副掌权（排成一排） -->
+        <div class="card">
+            <h2 class="card-title">副掌权</h2>
+            <div class="vice-list">
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 泽狗</div>
+                    <div class="member-name">泽狗</div>
                     <div class="member-desc">喷词大神</div>
                 </div>
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 将反</div>
-                    <div class="member-desc">忙着谈恋爱没空</div>
-                </div>
-                <div class="member-item">
-                    <div class="member-name">副掌权 · 遗忘</div>
-                    <div class="member-desc">技术总编 · 大神</div>
-                </div>
-                <div class="member-item">
-                    <div class="member-name">副掌权 · 李千雪</div>
-                    <div class="member-desc">罪歌爷爷</div>
-                </div>
-                <div class="member-item">
-                    <div class="member-name">副掌权 · 零雨</div>
-                    <div class="member-desc">小喷蛆一个</div>
-                </div>
-                <div class="member-item">
-                    <div class="member-name">副掌权 · 小敏</div>
+                    <div class="member-name">将反</div>
                     <div class="member-desc">忙着谈恋爱</div>
                 </div>
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 法天</div>
-                    <div class="member-desc">执行管理者 · 对外交涉</div>
+                    <div class="member-name">遗忘</div>
+                    <div class="member-desc">技术总编</div>
                 </div>
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 云间雪</div>
-                    <div class="member-desc">执行管理者 · 对外交涉</div>
+                    <div class="member-name">李千雪</div>
+                    <div class="member-desc">罪歌爷爷</div>
                 </div>
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 许文文</div>
-                    <div class="member-desc">执行管理者 · 对外交涉</div>
+                    <div class="member-name">零雨</div>
+                    <div class="member-desc">小喷蛆一个</div>
                 </div>
                 <div class="member-item">
-                    <div class="member-name">副掌权 · 涵涵</div>
-                    <div class="member-desc">执行管理者 · 对外交涉</div>
+                    <div class="member-name">小敏</div>
+                    <div class="member-desc">忙着谈恋爱</div>
+                </div>
+                <div class="member-item">
+                    <div class="member-name">法天</div>
+                    <div class="member-desc">对外交涉</div>
+                </div>
+                <div class="member-item">
+                    <div class="member-name">云间雪</div>
+                    <div class="member-desc">对外交涉</div>
+                </div>
+                <div class="member-item">
+                    <div class="member-name">许文文</div>
+                    <div class="member-desc">对外交涉</div>
+                </div>
+                <div class="member-item">
+                    <div class="member-name">涵涵</div>
+                    <div class="member-desc">对外交涉</div>
                 </div>
             </div>
         </div>
@@ -195,8 +199,8 @@
             <img src="2.png.jpg" alt="罪歌配图">
         </div>
 
-        <!-- 👇 真正的加好友链接！直接跳添加界面 -->
-        <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=644463062" class="contact-btn" target="_blank">
+        <!-- 点击联系 → 自动打开QQ搜索 644463062 -->
+        <a href="mqq://im/chat?chat_type=wpa&uin=644463062&version=1&src_type=web" class="contact-btn" target="_blank">
             点击联系
         </a>
 
